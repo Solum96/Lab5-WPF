@@ -6,7 +6,13 @@
         xmlns:local="clr-namespace:Lab5_WPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+    <Grid IsEnabled="True">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="AddUserButton" Content="Add User" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="346,282,0,0" Click="Button_Click" Grid.ColumnSpan="2" Cursor="Hand" Height="20" Background="#FF950000"/>
+        <Label x:Name="DisLabel" Content="You have located the hidden text" HorizontalAlignment="Left" Margin="277,86,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="116" Width="252" RenderTransformOrigin="0.503,0.492" Visibility="Hidden"/>
+
     </Grid>
 </Window>
