@@ -11,8 +11,15 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="AddUserButton" Content="Add User" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="346,282,0,0" Click="Button_Click" Grid.ColumnSpan="2" Cursor="Hand" Height="20" Background="#FF950000"/>
+        <Button x:Name="AddUserButton" Content="Add User" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="346,282,0,0" Click="Button_Click" Grid.ColumnSpan="2" Cursor="Hand" Height="20" IsEnabled="True"/>
         <Label x:Name="DisLabel" Content="You have located the hidden text" HorizontalAlignment="Left" Margin="277,86,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="116" Width="252" RenderTransformOrigin="0.503,0.492" Visibility="Hidden"/>
+        <TextBox x:Name="UserNameInput" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="253,165,0,0"/>
+        <TextBox x:Name="EmailInput" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="253,196,0,0"/>
+        <Label x:Name="EmailLabel" Content="Email:" HorizontalAlignment="Left" Margin="201,192,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="UserNameLabel" Content="Username:" HorizontalAlignment="Left" Margin="176,161,0,0" VerticalAlignment="Top"/>
+        <ListBox x:Name="userList" Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="78,144,0,0" VerticalAlignment="Top" Width="100" IsSynchronizedWithCurrentItem="True" SelectionChanged="UserList_SelectionChanged"/>
+        <Label x:Name="userNameDisplay" Content="Label" HorizontalAlignment="Left" Margin="262,73,0,0" VerticalAlignment="Top" Width="134"/>
+        <Label x:Name="userEmailDisplay" Content="Label" HorizontalAlignment="Left" Margin="262,104,0,0" VerticalAlignment="Top" Width="134"/>
 
     </Grid>
 </Window>
