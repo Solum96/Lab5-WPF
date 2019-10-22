@@ -24,7 +24,7 @@
         <Label x:Name="userListLabel" Content="Users" Grid.Column="1" HorizontalAlignment="Left" Margin="105,112,0,0" VerticalAlignment="Top"/>
         <Label x:Name="adminListLabel" Content="Admins" Grid.Column="1" HorizontalAlignment="Left" Margin="247,112,0,0" VerticalAlignment="Top"/>
         <Button x:Name="makeAdminButton" Content="Add Admin" Grid.Column="1" HorizontalAlignment="Left" Margin="78,249,0,0" VerticalAlignment="Top" Width="100" Click="MakeAdminButton_Click"/>
-        <Button x:Name="removeAdminButton" Content="Remove Admin" Grid.Column="1" HorizontalAlignment="Left" Margin="225,249,0,0" VerticalAlignment="Top" Width="100" Height="20"/>
+        <Button x:Name="removeAdminButton" Content="Remove Admin" Grid.Column="1" HorizontalAlignment="Left" Margin="225,249,0,0" VerticalAlignment="Top" Width="100" Height="20" Click="RemoveAdminButton_Click"/>
         <Button x:Name="updateUserButton" Content="Update User" HorizontalAlignment="Left" Margin="253,254,0,0" VerticalAlignment="Top" Width="100" Click="UpdateUserButton_Click"/>
 
     </Grid>

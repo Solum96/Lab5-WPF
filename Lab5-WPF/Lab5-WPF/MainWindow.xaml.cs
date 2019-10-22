@@ -102,7 +102,7 @@ namespace Lab5_WPF
                 if (adminCollection[i] == (User)adminList.SelectedItem)
                 {
                     var temp = adminCollection[i];
-                    adminCollection.Remove(userCollection[i]);
+                    adminCollection.Remove(adminCollection[i]);
                     userCollection.Add(temp);
                     userNameDisplay.Content = "";
                     userEmailDisplay.Content = "";
