@@ -31,7 +31,6 @@ namespace Lab5_WPF
             userList.DisplayMemberPath = "name";
             adminList.ItemsSource = adminCollection;
             adminList.DisplayMemberPath = "name";
-
         }
 
         private void AddUserButton_Click(object sender, RoutedEventArgs e)
