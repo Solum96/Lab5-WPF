@@ -109,5 +109,15 @@ namespace Lab5_WPF
                 }
             }
         }
+
+        private void AdminList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var temp = (User)adminList.SelectedItem;
+            if (temp != null)
+            {
+                userNameDisplay.Content = temp.name;
+                userEmailDisplay.Content = temp.eMail;
+            }
+        }
     }
 }
