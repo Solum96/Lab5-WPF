@@ -40,6 +40,33 @@ namespace Lab5_WPF
             userEmailInput.Clear();
         }
 
+        private void UpdateUserButton_Click(object sender, RoutedEventArgs e)
+        {
+            var temp = new User(userNameInput.Text, userEmailInput.Text);
+
+            if (userList.SelectedItem != null)
+            {
+                for (int i = 0; i < userCollection.Count; i++)
+                {
+                    if (userCollection[i] == (User)userList.SelectedItem)
+                    {
+                        if (!String.IsNullOrWhiteSpace(userNameInput.Text)) userCollection[i].username = temp.username;
+                        if (!String.IsNullOrWhiteSpace(userEmailInput.Text)) userCollection[i].eMail = temp.eMail;
+
+                        userNameInput.Clear();
+                        userEmailInput.Clear();
+                        userList.Items.Refresh();
+                        hudLabel.Content = $"Username: {userCollection[i].username} \nEmail: {userCollection[i].eMail}";
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                hudLabel.Content = "You must choose an item from the User List.";
+            }
+        }
+
         private void RemoveUserButton_Click(object sender, RoutedEventArgs e)
         {
             for (int i = 0; i < userCollection.Count; i++)
@@ -73,32 +100,7 @@ namespace Lab5_WPF
             }
         }
 
-        private void UpdateUserButton_Click(object sender, RoutedEventArgs e)
-        {
-            var temp = new User(userNameInput.Text, userEmailInput.Text);
-
-            if (userList.SelectedItem != null)
-            {
-                for (int i = 0; i < userCollection.Count; i++)
-                {
-                    if (userCollection[i] == (User)userList.SelectedItem)
-                    {
-                        if (!String.IsNullOrWhiteSpace(userNameInput.Text)) userCollection[i].username = temp.username;
-                        if (!String.IsNullOrWhiteSpace(userEmailInput.Text)) userCollection[i].eMail = temp.eMail;
-
-                        userNameInput.Clear();
-                        userEmailInput.Clear();
-                        userList.Items.Refresh();
-                        hudLabel.Content = $"Username: {userCollection[i].username} \nEmail: {userCollection[i].eMail}";
-                        break;
-                    }
-                }
-            }
-            else
-            {
-                hudLabel.Content = "You must choose an item from the User List.";
-            }
-        }
+        
 
         private void MakeAdminButton_Click(object sender, RoutedEventArgs e)
         {
