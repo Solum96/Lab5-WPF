@@ -94,5 +94,20 @@ namespace Lab5_WPF
                 }
             }
         }
+
+        private void RemoveAdminButton_Click(object sender, RoutedEventArgs e)
+        {
+            for (int i = 0; i < adminCollection.Count; i++)
+            {
+                if (adminCollection[i] == (User)adminList.SelectedItem)
+                {
+                    var temp = adminCollection[i];
+                    adminCollection.Remove(userCollection[i]);
+                    userCollection.Add(temp);
+                    userNameDisplay.Content = "";
+                    userEmailDisplay.Content = "";
+                }
+            }
+        }
     }
 }
