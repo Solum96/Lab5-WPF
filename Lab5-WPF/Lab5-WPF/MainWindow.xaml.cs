@@ -61,8 +61,8 @@ namespace Lab5_WPF
                 {
                     if (userCollection[i] == (User)userList.SelectedItem)
                     {
-                        userCollection[i].name = temp.name;
-                        userCollection[i].eMail = temp.eMail;
+                        if (!String.IsNullOrWhiteSpace(userNameInput.Text)) userCollection[i].name = temp.name;
+                        if (!String.IsNullOrWhiteSpace(userEmailInput.Text)) userCollection[i].eMail = temp.eMail;
 
                         userNameInput.Clear();
                         userEmailInput.Clear();
@@ -118,6 +118,20 @@ namespace Lab5_WPF
                 userNameDisplay.Content = temp.name;
                 userEmailDisplay.Content = temp.eMail;
                 userList.SelectedIndex = -1;
+            }
+        }
+
+        private void RemoveUserButton_Click(object sender, RoutedEventArgs e)
+        {
+            for (int i = 0; i < userCollection.Count; i++)
+            {
+                if (userCollection[i] == userList.SelectedItem)
+                {
+                    userNameDisplay.Content = "";
+                    userEmailDisplay.Content = "";
+                    userCollection.Remove(userCollection[i]);
+                    break;
+                }
             }
         }
     }
