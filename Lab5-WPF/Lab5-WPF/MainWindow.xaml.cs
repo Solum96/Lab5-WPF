@@ -22,25 +22,35 @@ namespace Lab5_WPF
     public partial class MainWindow : Window
     {
         ObservableCollection<User> userCollection = new ObservableCollection<User>();
+        ObservableCollection<User> adminCollection = new ObservableCollection<User>();
 
         public MainWindow()
         {
             InitializeComponent();
             userList.ItemsSource = userCollection;
             userList.DisplayMemberPath = "name";
+            adminList.ItemsSource = adminCollection;
+            adminList.DisplayMemberPath = "name";
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void AddUserButton_Click(object sender, RoutedEventArgs e)
         {
-            userCollection.Add(new User(UserNameInput.Text, EmailInput.Text));
-            
+            userCollection.Add(new User(userNameInput.Text, userEmailInput.Text));
+            userNameInput.Clear();
+            userEmailInput.Clear();
         }
 
         private void UserList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            userNameDisplay.Content = "name";
-            userEmailDisplay.Content = "eMail";
+            var temp = (User)userList.SelectedItem;
+            userNameDisplay.Content = temp.name;
+            userEmailDisplay.Content = temp.eMail;
+        }
+
+        private void UpdateUserButton_Click(object sender, RoutedEventArgs e)
+        {
+            var temp = new User(userNameInput.Text, userEmailInput.Text);
         }
     }
 }
