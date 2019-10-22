@@ -28,9 +28,9 @@ namespace Lab5_WPF
         {
             InitializeComponent();
             userList.ItemsSource = userCollection;
-            userList.DisplayMemberPath = "name";
+            userList.DisplayMemberPath = "username";
             adminList.ItemsSource = adminCollection;
-            adminList.DisplayMemberPath = "name";
+            adminList.DisplayMemberPath = "username";
         }
 
         private void AddUserButton_Click(object sender, RoutedEventArgs e)
@@ -38,17 +38,6 @@ namespace Lab5_WPF
             userCollection.Add(new User(userNameInput.Text, userEmailInput.Text));
             userNameInput.Clear();
             userEmailInput.Clear();
-        }
-
-        private void UserList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var temp = (User)userList.SelectedItem;
-            if(temp != null)
-            {
-                userNameDisplay.Content = temp.name;
-                userEmailDisplay.Content = temp.eMail;
-                adminList.SelectedIndex = -1;
-            }
         }
 
         private void UpdateUserButton_Click(object sender, RoutedEventArgs e)
@@ -61,24 +50,57 @@ namespace Lab5_WPF
                 {
                     if (userCollection[i] == (User)userList.SelectedItem)
                     {
-                        if (!String.IsNullOrWhiteSpace(userNameInput.Text)) userCollection[i].name = temp.name;
+                        if (!String.IsNullOrWhiteSpace(userNameInput.Text)) userCollection[i].username = temp.username;
                         if (!String.IsNullOrWhiteSpace(userEmailInput.Text)) userCollection[i].eMail = temp.eMail;
 
                         userNameInput.Clear();
                         userEmailInput.Clear();
                         userList.Items.Refresh();
-                        userNameDisplay.Content = userCollection[i].name;
-                        userEmailDisplay.Content = userCollection[i].eMail;
+                        hudLabel.Content = $"Username: {userCollection[i].username} \nEmail: {userCollection[i].eMail}";
                         break;
                     }
                 }
             }
             else
             {
-                userNameDisplay.Content = "You must choose an item from the User List.";
-                userEmailDisplay.Content = "";
+                hudLabel.Content = "You must choose an item from the User List.";
             }
         }
+
+        private void RemoveUserButton_Click(object sender, RoutedEventArgs e)
+        {
+            for (int i = 0; i < userCollection.Count; i++)
+            {
+                if (userCollection[i] == userList.SelectedItem)
+                {
+                    hudLabel.Content = String.Empty;
+                    userCollection.Remove(userCollection[i]);
+                    break;
+                }
+            }
+        }
+
+        private void UserList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var temp = (User)userList.SelectedItem;
+            if(temp != null)
+            {
+                hudLabel.Content = $"Username: {temp.username} \nEmail: {temp.eMail}";
+                adminList.SelectedIndex = -1;
+            }
+        }
+
+        private void AdminList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var temp = (User)adminList.SelectedItem;
+            if (temp != null)
+            {
+                hudLabel.Content = $"Username: {temp.username} \nEmail: {temp.eMail}";
+                userList.SelectedIndex = -1;
+            }
+        }
+
+        
 
         private void MakeAdminButton_Click(object sender, RoutedEventArgs e)
         {
@@ -89,8 +111,7 @@ namespace Lab5_WPF
                     var temp = userCollection[i];
                     userCollection.Remove(userCollection[i]);
                     adminCollection.Add(temp);
-                    userNameDisplay.Content = "";
-                    userEmailDisplay.Content = "";
+                    hudLabel.Content = String.Empty;
                 }
             }
         }
@@ -104,33 +125,7 @@ namespace Lab5_WPF
                     var temp = adminCollection[i];
                     adminCollection.Remove(adminCollection[i]);
                     userCollection.Add(temp);
-                    userNameDisplay.Content = String.Empty;
-                    userEmailDisplay.Content = String.Empty;
-                }
-            }
-        }
-
-        private void AdminList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var temp = (User)adminList.SelectedItem;
-            if (temp != null)
-            {
-                userNameDisplay.Content = temp.name;
-                userEmailDisplay.Content = temp.eMail;
-                userList.SelectedIndex = -1;
-            }
-        }
-
-        private void RemoveUserButton_Click(object sender, RoutedEventArgs e)
-        {
-            for (int i = 0; i < userCollection.Count; i++)
-            {
-                if (userCollection[i] == userList.SelectedItem)
-                {
-                    userNameDisplay.Content = "";
-                    userEmailDisplay.Content = "";
-                    userCollection.Remove(userCollection[i]);
-                    break;
+                    hudLabel.Content = String.Empty;
                 }
             }
         }

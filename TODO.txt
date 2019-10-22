@@ -1,3 +1,0 @@
-TODO:
-Add remove User button
-disable buttons when nothing is selected
