@@ -18,8 +18,8 @@
         <Label x:Name="EmailLabel" Content="Email:" HorizontalAlignment="Left" Margin="201,192,0,0" VerticalAlignment="Top"/>
         <Label x:Name="UserNameLabel" Content="Username:" HorizontalAlignment="Left" Margin="176,161,0,0" VerticalAlignment="Top"/>
         <ListBox x:Name="userList" Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="78,144,0,0" VerticalAlignment="Top" Width="100" IsSynchronizedWithCurrentItem="True" SelectionChanged="UserList_SelectionChanged"/>
-        <Label x:Name="userNameDisplay" Content="" HorizontalAlignment="Left" Margin="262,73,0,0" VerticalAlignment="Top" Width="134"/>
-        <Label x:Name="userEmailDisplay" Content="" HorizontalAlignment="Left" Margin="262,104,0,0" VerticalAlignment="Top" Width="134"/>
+        <Label x:Name="userNameDisplay" Content="" HorizontalAlignment="Left" Margin="262,42,0,0" VerticalAlignment="Top" Width="312" Grid.ColumnSpan="2"/>
+        <Label x:Name="userEmailDisplay" Content="" HorizontalAlignment="Left" Margin="262,81,0,0" VerticalAlignment="Top" Width="312" Grid.ColumnSpan="2"/>
         <ListBox x:Name="adminList" Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="225,144,0,0" VerticalAlignment="Top" Width="100"/>
         <Label x:Name="userListLabel" Content="Users" Grid.Column="1" HorizontalAlignment="Left" Margin="105,112,0,0" VerticalAlignment="Top"/>
         <Label x:Name="adminListLabel" Content="Admins" Grid.Column="1" HorizontalAlignment="Left" Margin="247,112,0,0" VerticalAlignment="Top"/>
