@@ -1,4 +1,3 @@
 TODO:
-Add labelupdate on adminList ItemSelect
 Add remove User button
 disable buttons when nothing is selected
