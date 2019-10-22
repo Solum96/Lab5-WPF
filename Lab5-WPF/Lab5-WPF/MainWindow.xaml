@@ -13,19 +13,18 @@
         </Grid.ColumnDefinitions>
         <Button x:Name="addUserButton" Content="Add User" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="253,229,0,0" Click="AddUserButton_Click" Cursor="Hand" Height="20" IsEnabled="True"/>
         <Label x:Name="DisLabel" Content="You have located the hidden text" HorizontalAlignment="Left" Margin="277,86,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="116" Width="252" RenderTransformOrigin="0.503,0.492" Visibility="Hidden"/>
-        <TextBox x:Name="userNameInput" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" Margin="253,165,0,0"/>
-        <TextBox x:Name="userEmailInput" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" Margin="253,196,0,0"/>
+        <TextBox x:Name="userNameInput" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" Margin="253,165,0,0" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="userEmailInput" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" Margin="253,196,0,0" Grid.ColumnSpan="2"/>
         <Label x:Name="EmailLabel" Content="Email:" HorizontalAlignment="Left" Margin="201,192,0,0" VerticalAlignment="Top"/>
         <Label x:Name="UserNameLabel" Content="Username:" HorizontalAlignment="Left" Margin="176,161,0,0" VerticalAlignment="Top"/>
         <ListBox x:Name="userList" Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="78,144,0,0" VerticalAlignment="Top" Width="100" IsSynchronizedWithCurrentItem="True" SelectionChanged="UserList_SelectionChanged"/>
-        <Label x:Name="userNameDisplay" Content="" HorizontalAlignment="Left" Margin="262,42,0,0" VerticalAlignment="Top" Width="312" Grid.ColumnSpan="2"/>
-        <Label x:Name="userEmailDisplay" Content="" HorizontalAlignment="Left" Margin="262,81,0,0" VerticalAlignment="Top" Width="312" Grid.ColumnSpan="2"/>
+        <Label x:Name="hudLabel" Content="" HorizontalAlignment="Left" Margin="262,42,0,0" VerticalAlignment="Top" Width="312" Grid.ColumnSpan="2" Height="70"/>
         <ListBox x:Name="adminList" Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="225,144,0,0" VerticalAlignment="Top" Width="100" SelectionChanged="AdminList_SelectionChanged"/>
         <Label x:Name="userListLabel" Content="Users" Grid.Column="1" HorizontalAlignment="Left" Margin="105,112,0,0" VerticalAlignment="Top"/>
         <Label x:Name="adminListLabel" Content="Admins" Grid.Column="1" HorizontalAlignment="Left" Margin="247,112,0,0" VerticalAlignment="Top"/>
         <Button x:Name="makeAdminButton" IsEnabled="{Binding ElementName=userList, Path=SelectedItems.Count}" Content="Make Admin" Grid.Column="1" HorizontalAlignment="Left" Margin="78,249,0,0" VerticalAlignment="Top" Width="100" Click="MakeAdminButton_Click"/>
         <Button x:Name="removeAdminButton" IsEnabled="{Binding ElementName=adminList, Path=SelectedItems.Count}" Content="Make User" Grid.Column="1" HorizontalAlignment="Left" Margin="225,249,0,0" VerticalAlignment="Top" Width="100" Height="20" Click="RemoveAdminButton_Click"/>
-        <Button x:Name="updateUserButton" Content="Update User" HorizontalAlignment="Left" Margin="253,254,0,0" VerticalAlignment="Top" Width="100" Click="UpdateUserButton_Click"/>
+        <Button x:Name="updateUserButton" IsEnabled="{Binding ElementName=userList, Path=SelectedItems.Count}" Content="Update User" HorizontalAlignment="Left" Margin="253,254,0,0" VerticalAlignment="Top" Width="100" Click="UpdateUserButton_Click"/>
         <Button x:Name="removeUserButton" Content="Remove User" IsEnabled="{Binding ElementName=userList, Path=SelectedItems.Count}"  Grid.Column="1" HorizontalAlignment="Left" Margin="78,274,0,0" VerticalAlignment="Top" Width="100" Height="53" Click="RemoveUserButton_Click"/>
 
     </Grid>
