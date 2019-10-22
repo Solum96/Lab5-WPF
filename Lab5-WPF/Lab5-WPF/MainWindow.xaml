@@ -20,7 +20,7 @@
         <ListBox x:Name="userList" Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="78,144,0,0" VerticalAlignment="Top" Width="100" IsSynchronizedWithCurrentItem="True" SelectionChanged="UserList_SelectionChanged"/>
         <Label x:Name="userNameDisplay" Content="" HorizontalAlignment="Left" Margin="262,42,0,0" VerticalAlignment="Top" Width="312" Grid.ColumnSpan="2"/>
         <Label x:Name="userEmailDisplay" Content="" HorizontalAlignment="Left" Margin="262,81,0,0" VerticalAlignment="Top" Width="312" Grid.ColumnSpan="2"/>
-        <ListBox x:Name="adminList" Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="225,144,0,0" VerticalAlignment="Top" Width="100"/>
+        <ListBox x:Name="adminList" Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="225,144,0,0" VerticalAlignment="Top" Width="100" SelectionChanged="AdminList_SelectionChanged"/>
         <Label x:Name="userListLabel" Content="Users" Grid.Column="1" HorizontalAlignment="Left" Margin="105,112,0,0" VerticalAlignment="Top"/>
         <Label x:Name="adminListLabel" Content="Admins" Grid.Column="1" HorizontalAlignment="Left" Margin="247,112,0,0" VerticalAlignment="Top"/>
         <Button x:Name="makeAdminButton" Content="Add Admin" Grid.Column="1" HorizontalAlignment="Left" Margin="78,249,0,0" VerticalAlignment="Top" Width="100" Click="MakeAdminButton_Click"/>
