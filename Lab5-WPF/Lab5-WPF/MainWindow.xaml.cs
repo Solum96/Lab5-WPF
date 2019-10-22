@@ -44,8 +44,11 @@ namespace Lab5_WPF
         private void UserList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var temp = (User)userList.SelectedItem;
-            userNameDisplay.Content = temp.name;
-            userEmailDisplay.Content = temp.eMail;
+            if(temp != null)
+            {
+                userNameDisplay.Content = temp.name;
+                userEmailDisplay.Content = temp.eMail;
+            }
         }
 
         private void UpdateUserButton_Click(object sender, RoutedEventArgs e)
@@ -74,6 +77,21 @@ namespace Lab5_WPF
             {
                 userNameDisplay.Content = "You must choose an item from the User List.";
                 userEmailDisplay.Content = "";
+            }
+        }
+
+        private void MakeAdminButton_Click(object sender, RoutedEventArgs e)
+        {
+            for (int i = 0; i < userCollection.Count; i++)
+            {
+                if (userCollection[i] == (User)userList.SelectedItem)
+                {
+                    var temp = userCollection[i];
+                    userCollection.Remove(userCollection[i]);
+                    adminCollection.Add(temp);
+                    userNameDisplay.Content = "";
+                    userEmailDisplay.Content = "";
+                }
             }
         }
     }
