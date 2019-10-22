@@ -46,8 +46,11 @@ namespace Lab5_WPF
             var temp = (User)userList.SelectedItem;
             if(temp != null)
             {
+                // userNameDisplay.Content = String.Empty;
+                // userEmailDisplay.Content = String.Empty;
                 userNameDisplay.Content = temp.name;
                 userEmailDisplay.Content = temp.eMail;
+                adminList.SelectedIndex = -1;
             }
         }
 
@@ -104,8 +107,8 @@ namespace Lab5_WPF
                     var temp = adminCollection[i];
                     adminCollection.Remove(adminCollection[i]);
                     userCollection.Add(temp);
-                    userNameDisplay.Content = "";
-                    userEmailDisplay.Content = "";
+                    userNameDisplay.Content = String.Empty;
+                    userEmailDisplay.Content = String.Empty;
                 }
             }
         }
@@ -115,8 +118,11 @@ namespace Lab5_WPF
             var temp = (User)adminList.SelectedItem;
             if (temp != null)
             {
+                // userNameDisplay.Content = String.Empty;
+                // userEmailDisplay.Content = String.Empty;
                 userNameDisplay.Content = temp.name;
                 userEmailDisplay.Content = temp.eMail;
+                userList.SelectedIndex = -1;
             }
         }
     }
