@@ -35,9 +35,13 @@ namespace Lab5_WPF
 
         private void OnAddUserButtonClick(object sender, RoutedEventArgs e)
         {
-            userCollection.Add(new User(userNameInput.Text, userEmailInput.Text));
-            userNameInput.Clear();
-            userEmailInput.Clear();
+            if(!String.IsNullOrWhiteSpace(userNameInput.Text) &&
+               !String.IsNullOrWhiteSpace(userEmailInput.Text))
+            {
+                userCollection.Add(new User(userNameInput.Text, userEmailInput.Text));
+                userNameInput.Clear();
+                userEmailInput.Clear();
+            }
         }
 
         private void OnUpdateUserButtonClick(object sender, RoutedEventArgs e)

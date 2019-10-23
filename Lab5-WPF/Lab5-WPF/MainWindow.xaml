@@ -14,8 +14,8 @@
         <Label x:Name="hudLabel" Content="" HorizontalAlignment="Left" Margin="242,16,0,0" VerticalAlignment="Top" Width="312" Grid.ColumnSpan="2" Height="70"/>
         <TextBox x:Name="userNameInput" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" Margin="139,129,0,0"/>
         <TextBox x:Name="userEmailInput" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" Margin="139,157,0,0"/>
-        <Label x:Name="EmailLabel" Content="Email:" HorizontalAlignment="Left" Margin="93,152,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="UserNameLabel" Content="Username:" HorizontalAlignment="Left" Margin="68,126,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="emailLabel" Content="Email:" HorizontalAlignment="Left" Margin="93,152,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="userNameLabel" Content="Username:" HorizontalAlignment="Left" Margin="68,126,0,0" VerticalAlignment="Top"/>
         <Button x:Name="addUserButton" Content="Add User" HorizontalAlignment="Left" VerticalAlignment="Top" Width="89" Margin="139,185,0,0" Click="OnAddUserButtonClick" Cursor="Hand" Height="20" IsEnabled="True"/>
         <Button x:Name="updateUserButton" IsEnabled="{Binding ElementName=userList, Path=SelectedItems.Count}" Content="Update User" HorizontalAlignment="Left" Margin="233,185,0,0" VerticalAlignment="Top" Width="89" Click="OnUpdateUserButtonClick"/>
         <Label x:Name="userListLabel" Content="Users" Grid.Column="1" HorizontalAlignment="Left" Margin="106,98,0,0" VerticalAlignment="Top"/>
