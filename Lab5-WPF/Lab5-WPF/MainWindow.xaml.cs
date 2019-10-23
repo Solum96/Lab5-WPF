@@ -65,10 +65,6 @@ namespace Lab5_WPF
                     }
                 }
             }
-            else
-            {
-                hudLabel.Content = "You must choose an item from the User List.";
-            }
         }
 
         private void OnRemoveUserButtonClick(object sender, RoutedEventArgs e)
@@ -103,8 +99,6 @@ namespace Lab5_WPF
                 userList.SelectedIndex = -1;
             }
         }
-
-        
 
         private void OnMakeAdminButtonClick(object sender, RoutedEventArgs e)
         {
