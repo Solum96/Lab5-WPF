@@ -2,12 +2,12 @@
 {
     public class User
     {
-        public string username { get; set; }
-        public string eMail { get; set; }
+        public string Username { get; set; }
+        public string Email { get; set; }
         public User(string username, string eMail)
         {
-            this.username = username;
-            this.eMail = eMail;
+            Username = username;
+            Email = eMail;
         }
     }
 }

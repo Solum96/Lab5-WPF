@@ -28,19 +28,19 @@ namespace Lab5_WPF
         {
             InitializeComponent();
             userList.ItemsSource = userCollection;
-            userList.DisplayMemberPath = "username";
+            userList.DisplayMemberPath = "Username";
             adminList.ItemsSource = adminCollection;
-            adminList.DisplayMemberPath = "username";
+            adminList.DisplayMemberPath = "Username";
         }
 
-        private void AddUserButton_Click(object sender, RoutedEventArgs e)
+        private void OnAddUserButtonClick(object sender, RoutedEventArgs e)
         {
             userCollection.Add(new User(userNameInput.Text, userEmailInput.Text));
             userNameInput.Clear();
             userEmailInput.Clear();
         }
 
-        private void UpdateUserButton_Click(object sender, RoutedEventArgs e)
+        private void OnUpdateUserButtonClick(object sender, RoutedEventArgs e)
         {
             var temp = new User(userNameInput.Text, userEmailInput.Text);
 
@@ -50,13 +50,13 @@ namespace Lab5_WPF
                 {
                     if (userCollection[i] == (User)userList.SelectedItem)
                     {
-                        if (!String.IsNullOrWhiteSpace(userNameInput.Text)) userCollection[i].username = temp.username;
-                        if (!String.IsNullOrWhiteSpace(userEmailInput.Text)) userCollection[i].eMail = temp.eMail;
+                        if (!String.IsNullOrWhiteSpace(userNameInput.Text)) userCollection[i].Username = temp.Username;
+                        if (!String.IsNullOrWhiteSpace(userEmailInput.Text)) userCollection[i].Email = temp.Email;
 
                         userNameInput.Clear();
                         userEmailInput.Clear();
                         userList.Items.Refresh();
-                        hudLabel.Content = $"Username: {userCollection[i].username} \nEmail: {userCollection[i].eMail}";
+                        hudLabel.Content = $"Username: {userCollection[i].Username} \nEmail: {userCollection[i].Email}";
                         break;
                     }
                 }
@@ -67,7 +67,7 @@ namespace Lab5_WPF
             }
         }
 
-        private void RemoveUserButton_Click(object sender, RoutedEventArgs e)
+        private void OnRemoveUserButtonClick(object sender, RoutedEventArgs e)
         {
             for (int i = 0; i < userCollection.Count; i++)
             {
@@ -80,29 +80,29 @@ namespace Lab5_WPF
             }
         }
 
-        private void UserList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void OnUserListSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var temp = (User)userList.SelectedItem;
             if(temp != null)
             {
-                hudLabel.Content = $"Username: {temp.username} \nEmail: {temp.eMail}";
+                hudLabel.Content = $"Username: {temp.Username} \nEmail: {temp.Email}";
                 adminList.SelectedIndex = -1;
             }
         }
 
-        private void AdminList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void OnAdminListSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var temp = (User)adminList.SelectedItem;
             if (temp != null)
             {
-                hudLabel.Content = $"Username: {temp.username} \nEmail: {temp.eMail}";
+                hudLabel.Content = $"Username: {temp.Username} \nEmail: {temp.Email}";
                 userList.SelectedIndex = -1;
             }
         }
 
         
 
-        private void MakeAdminButton_Click(object sender, RoutedEventArgs e)
+        private void OnMakeAdminButtonClick(object sender, RoutedEventArgs e)
         {
             for (int i = 0; i < userCollection.Count; i++)
             {
@@ -116,7 +116,7 @@ namespace Lab5_WPF
             }
         }
 
-        private void RemoveAdminButton_Click(object sender, RoutedEventArgs e)
+        private void OnRemoveAdminButtonClick(object sender, RoutedEventArgs e)
         {
             for (int i = 0; i < adminCollection.Count; i++)
             {
