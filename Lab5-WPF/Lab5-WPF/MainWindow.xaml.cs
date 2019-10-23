@@ -27,6 +27,7 @@ namespace Lab5_WPF
         public MainWindow()
         {
             InitializeComponent();
+            
             userList.ItemsSource = userCollection;
             userList.DisplayMemberPath = "Username";
             adminList.ItemsSource = adminCollection;
@@ -50,19 +51,28 @@ namespace Lab5_WPF
 
             if (userList.SelectedItem != null)
             {
-                for (int i = 0; i < userCollection.Count; i++)
-                {
-                    if (userCollection[i] == (User)userList.SelectedItem)
-                    {
-                        if (!String.IsNullOrWhiteSpace(userNameInput.Text)) userCollection[i].Username = temp.Username;
-                        if (!String.IsNullOrWhiteSpace(userEmailInput.Text)) userCollection[i].Email = temp.Email;
+                UpdateUser(temp, userCollection, userList);
+            }
+            if (adminList.SelectedItem != null)
+            {
+                UpdateUser(temp, adminCollection, adminList);
+            }
+        }
 
-                        userNameInput.Clear();
-                        userEmailInput.Clear();
-                        userList.Items.Refresh();
-                        hudLabel.Content = $"Username: {userCollection[i].Username} \nEmail: {userCollection[i].Email}";
-                        break;
-                    }
+        private void UpdateUser(User temp, ObservableCollection<User> collection, ListBox listbox)
+        {
+            for (int i = 0; i < collection.Count; i++)
+            {
+                if (collection[i] == (User)listbox.SelectedItem)
+                {
+                    if (!String.IsNullOrWhiteSpace(userNameInput.Text)) collection[i].Username = temp.Username;
+                    if (!String.IsNullOrWhiteSpace(userEmailInput.Text)) collection[i].Email = temp.Email;
+
+                    userNameInput.Clear();
+                    userEmailInput.Clear();
+                    userList.Items.Refresh();
+                    hudLabel.Content = $"Username: {collection[i].Username} \nEmail: {collection[i].Email}";
+                    break;
                 }
             }
         }
@@ -75,6 +85,7 @@ namespace Lab5_WPF
                 {
                     hudLabel.Content = String.Empty;
                     userCollection.Remove(userCollection[i]);
+                    if (userList.SelectedItems.Count <= 0) updateUserButton.IsEnabled = false;
                     break;
                 }
             }
@@ -87,6 +98,7 @@ namespace Lab5_WPF
             {
                 hudLabel.Content = $"Username: {temp.Username} \nEmail: {temp.Email}";
                 adminList.SelectedIndex = -1;
+                updateUserButton.IsEnabled = true;
             }
         }
 
@@ -97,6 +109,7 @@ namespace Lab5_WPF
             {
                 hudLabel.Content = $"Username: {temp.Username} \nEmail: {temp.Email}";
                 userList.SelectedIndex = -1;
+                updateUserButton.IsEnabled = true;
             }
         }
 
@@ -110,6 +123,7 @@ namespace Lab5_WPF
                     userCollection.Remove(userCollection[i]);
                     adminCollection.Add(temp);
                     hudLabel.Content = String.Empty;
+                    if (userList.SelectedItems.Count <= 0) updateUserButton.IsEnabled = false;
                 }
             }
         }
@@ -124,6 +138,7 @@ namespace Lab5_WPF
                     adminCollection.Remove(adminCollection[i]);
                     userCollection.Add(temp);
                     hudLabel.Content = String.Empty;
+                    if (adminList.SelectedItems.Count <= 0) updateUserButton.IsEnabled = false;
                 }
             }
         }
